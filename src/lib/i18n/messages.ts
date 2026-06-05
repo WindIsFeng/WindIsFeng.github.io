@@ -94,7 +94,7 @@ const en: LocaleMessages = {
   },
   footer: {
     lastUpdated: 'Last updated',
-    builtWithPrism: 'Built with PRISM',
+    builtWithPrism: 'Source code',
   },
 };
 
@@ -144,7 +144,7 @@ const zh: LocaleMessages = {
   },
   footer: {
     lastUpdated: '最近更新',
-    builtWithPrism: '由 PRISM 构建',
+    builtWithPrism: '源代码',
   },
 };
 
