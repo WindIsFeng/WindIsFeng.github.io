@@ -49,6 +49,7 @@ export interface Publication {
   awards?: string[];
   featured?: boolean;
   selected?: boolean;
+  sortOrder?: number;
   preview?: string;
   summary?: string;
   researchArea: ResearchArea;

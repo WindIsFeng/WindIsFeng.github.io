@@ -1,5 +1,5 @@
-I am a PhD student at the School of Science, University of Example, advised by [Prof. Advisor One](https://example.com) and [Dr. Advisor Two](https://example.com).
+I am a fourth-year PhD student at City University of Hong Kong. My research focuses on typhoon wind hazard modeling and risk analysis, combining AI models, probabilistic models, and physics-based models.
 
-Prior to this, I obtained a BSc degree with First Class Honours in Natural Science from the University of Example.
+Before joining CityU, I received my master's degree in Civil Engineering from Tongji University and my bachelor's degree from Nanjing University of Aeronautics and Astronautics.
 
-My current research focuses on investigating the mathematical principles of natural philosophy.
+My long-term goal is to build reliable natural hazard prediction and decision-support models that help protect communities and save lives.

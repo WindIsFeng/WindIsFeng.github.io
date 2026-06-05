@@ -1,4 +1,4 @@
 type = "publication"
 title = "Publications"
-description = "A collection of my research work."
+description = "Selected publications and manuscripts on tropical cyclones, natural hazards, deep learning, and climate change."
 source = "publications.bib"

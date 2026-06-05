@@ -1,7 +1,11 @@
 [[news]]
-date = "2025-11"
-content = "我们的工作被顶级期刊接收了 🎉"
+date = "2026-05"
+content = "关于快速台风风向转变下风浪错位对漂浮式海上风机响应影响的论文发表于 Engineering Structures。"
 
 [[news]]
-date = "2025-09"
-content = "在某某大学开始博士学习"
+date = "2025-11"
+content = "关于利用卷积混合神经网络预测气候变化下热带气旋生成的论文发表于 Atmospheric Research。"
+
+[[news]]
+date = "2024-11"
+content = "关于利用物理约束机器学习重构热带气旋边界层风场的论文发表于 Physics of Fluids。"

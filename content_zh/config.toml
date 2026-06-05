@@ -1,22 +1,28 @@
 [site]
-title = "刘嘉乐"
-description = "某某大学博士生个人主页。"
-last_updated = "2025年11月18日"
+title = "胡丰"
+description = "香港城市大学博士生，研究台风风灾建模与风险分析。"
+last_updated = "2026年6月5日"
 
 [author]
-name = "刘嘉乐"
+name = "胡丰"
 title = "博士生"
-institution = "某某大学"
+institution = "香港城市大学"
+avatar = "/profile.jpg"
 
 [social]
-location = "城市，国家"
+email = "hufeng0115@gmail.com"
+location = "中国香港"
+location_url = "https://maps.google.com/?q=City+University+of+Hong+Kong"
 location_details = [
-  "理科楼 123 室，",
-  "大学路，城市，国家"
+  "香港城市大学",
+  "中国香港"
 ]
+google_scholar = "https://scholar.google.com/citations?hl=zh-CN&user=Yb25D48AAAAJ"
+orcid = "https://orcid.org/0000-0002-2496-6294"
+github = "https://github.com/WindIsFeng"
 
 [[navigation]]
-title = "关于我"
+title = "关于"
 type = "page"
 target = "about"
 href = "/"
@@ -26,24 +32,6 @@ title = "论文"
 type = "page"
 target = "publications"
 href = "/publications"
-
-[[navigation]]
-title = "教学"
-type = "page"
-target = "teaching"
-href = "/teaching"
-
-[[navigation]]
-title = "奖项"
-type = "page"
-target = "awards"
-href = "/awards"
-
-[[navigation]]
-title = "服务"
-type = "page"
-target = "services"
-href = "/services"
 
 [[navigation]]
 title = "简历"

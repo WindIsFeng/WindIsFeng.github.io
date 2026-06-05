@@ -1,7 +1,11 @@
 [[news]]
-date = "2025-11"
-content = "Our work has been accepted by a prestigious journal 🎉"
+date = "2026-05"
+content = "Our paper on wind-wave misalignment effects on floating offshore wind turbines under rapid typhoon wind shifts was published in Engineering Structures."
 
 [[news]]
-date = "2025-09"
-content = "Starting my PhD at the University of Example"
+date = "2025-11"
+content = "Our paper on projecting tropical cyclone genesis under climate change with convolutional mixing neural networks was published in Atmospheric Research."
+
+[[news]]
+date = "2024-11"
+content = "Our physics-informed machine learning paper for reconstructing tropical cyclone boundary layer wind fields was published in Physics of Fluids."
