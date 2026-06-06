@@ -44,12 +44,12 @@ export default function SelectedPublications({ publications, title, enableOnePag
                     >
                         <div className="flex flex-col sm:flex-row gap-4">
                             {pub.preview && (
-                                <div className="relative w-full sm:w-32 aspect-video sm:aspect-[4/3] flex-shrink-0 overflow-hidden rounded-md bg-white dark:bg-neutral-800">
+                                <div className="relative w-full sm:w-32 aspect-video sm:aspect-[4/3] flex-shrink-0 rounded-md bg-white dark:bg-neutral-800">
                                     <Image
                                         src={`/papers/${pub.preview}`}
                                         alt={pub.title}
                                         fill
-                                        className="object-contain"
+                                        style={{ objectFit: 'contain', objectPosition: 'center' }}
                                         sizes="(max-width: 640px) 100vw, 128px"
                                     />
                                 </div>
