@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Publication } from '@/types/publication';
 import { useMessages } from '@/lib/i18n/useMessages';
@@ -44,13 +43,15 @@ export default function SelectedPublications({ publications, title, enableOnePag
                     >
                         <div className="flex flex-col sm:flex-row gap-4">
                             {pub.preview && (
-                                <div className="relative w-full sm:w-32 aspect-video sm:aspect-[4/3] flex-shrink-0 rounded-md bg-white dark:bg-neutral-800">
-                                    <Image
+                                <div className="w-full sm:w-32 flex-shrink-0 self-start">
+                                    {/* These local previews are already optimized static assets. */}
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
                                         src={`/papers/${pub.preview}`}
                                         alt={pub.title}
-                                        fill
-                                        style={{ objectFit: 'contain', objectPosition: 'center' }}
-                                        sizes="(max-width: 640px) 100vw, 128px"
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="block w-full h-auto rounded-md bg-white dark:bg-neutral-800"
                                     />
                                 </div>
                             )}

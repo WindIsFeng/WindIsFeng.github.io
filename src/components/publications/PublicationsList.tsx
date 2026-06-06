@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import {
     MagnifyingGlassIcon,
     FunnelIcon,
@@ -215,16 +214,16 @@ export default function PublicationsList({ config, publications, embedded = fals
                         >
                             <div className="flex flex-col md:flex-row gap-6">
                                 {pub.preview && (
-                                    <div className="w-full md:w-48 flex-shrink-0">
-                                        <div className="aspect-video md:aspect-[4/3] relative rounded-lg bg-white dark:bg-neutral-800">
-                                            <Image
-                                                src={`/papers/${pub.preview}`}
-                                                alt={pub.title}
-                                                fill
-                                                style={{ objectFit: 'contain', objectPosition: 'center' }}
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
-                                        </div>
+                                    <div className="w-full md:w-48 flex-shrink-0 self-start">
+                                        {/* These local previews are already optimized static assets. */}
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src={`/papers/${pub.preview}`}
+                                            alt={pub.title}
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="block w-full h-auto rounded-lg bg-white dark:bg-neutral-800"
+                                        />
                                     </div>
                                 )}
                                 <div className="flex-grow">
