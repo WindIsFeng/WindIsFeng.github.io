@@ -26,4 +26,4 @@ id = "featured_publications"
 type = "publications"
 title = "代表性论文"
 filter = "selected"
-limit = 2
+limit = 5

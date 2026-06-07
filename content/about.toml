@@ -26,4 +26,4 @@ id = "featured_publications"
 type = "publications"
 title = "Selected Publications"
 filter = "selected"
-limit = 2
+limit = 5
