@@ -1,7 +1,7 @@
 [site]
 title = "胡丰"
 description = "香港城市大学博士生，研究台风风灾建模与风险分析。"
-last_updated = "2026年6月5日"
+last_updated = "2026年7月3日"
 
 [author]
 name = "胡丰"
@@ -32,6 +32,12 @@ title = "论文"
 type = "page"
 target = "publications"
 href = "/publications"
+
+[[navigation]]
+title = "项目"
+type = "page"
+target = "projects"
+href = "/projects"
 
 [[navigation]]
 title = "简历"

@@ -2,7 +2,7 @@
 title = "Feng Hu"
 description = "PhD student at City University of Hong Kong, studying typhoon wind hazard modeling and risk analysis."
 favicon = "/favicon.svg"
-last_updated = "June 5, 2026"
+last_updated = "July 3, 2026"
 
 [author]
 name = "Feng Hu"
@@ -50,6 +50,12 @@ title = "Publications"
 type = "page"
 target = "publications"
 href = "/publications"
+
+[[navigation]]
+title = "Projects"
+type = "page"
+target = "projects"
+href = "/projects"
 
 [[navigation]]
 title = "CV"
