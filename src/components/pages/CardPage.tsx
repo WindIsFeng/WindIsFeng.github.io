@@ -1,8 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { CardPageConfig } from '@/types/page';
+import { useMessages } from '@/lib/i18n/useMessages';
 
 const markdownComponents = {
     p: ({ children }: React.ComponentProps<'p'>) => <p className="mb-3 last:mb-0">{children}</p>,
@@ -30,6 +33,16 @@ const markdownComponents = {
 };
 
 export default function CardPage({ config, embedded = false }: { config: CardPageConfig; embedded?: boolean }) {
+    const messages = useMessages();
+    const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
+
+    const toggleItem = (index: number) => {
+        setExpandedItems(current => ({
+            ...current,
+            [index]: !current[index],
+        }));
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -48,43 +61,88 @@ export default function CardPage({ config, embedded = false }: { config: CardPag
             </div>
 
             <div className={`grid ${embedded ? "gap-4" : "gap-6"}`}>
-                {config.items.map((item, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.1 * index }}
-                        className={`bg-white dark:bg-neutral-900 ${embedded ? "p-4" : "p-6"} rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all duration-200 hover:scale-[1.01]`}
-                    >
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary`}>{item.title}</h3>
-                            {item.date && (
-                                <span className="text-sm text-neutral-500 font-medium bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded">
-                                    {item.date}
-                                </span>
-                            )}
-                        </div>
-                        {item.subtitle && (
-                            <p className={`${embedded ? "text-sm" : "text-base"} text-accent font-medium mb-3`}>{item.subtitle}</p>
-                        )}
-                        {item.content && (
-                            <div className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-relaxed`}>
-                                <ReactMarkdown components={markdownComponents}>
-                                    {item.content}
-                                </ReactMarkdown>
-                            </div>
-                        )}
-                        {item.tags && (
-                            <div className="flex flex-wrap gap-2 mt-4">
-                                {item.tags.map(tag => (
-                                    <span key={tag} className="text-xs text-neutral-500 bg-neutral-50 dark:bg-neutral-800/50 px-2 py-1 rounded border border-neutral-100 dark:border-neutral-800">
-                                        {tag}
+                {config.items.map((item, index) => {
+                    const isExpanded = Boolean(expandedItems[index]);
+                    const contentId = `card-content-${index}`;
+
+                    return (
+                        <motion.article
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.1 * index }}
+                            className={`bg-white dark:bg-neutral-900 ${embedded ? "p-4" : "p-6"} rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-shadow duration-200`}
+                        >
+                            <div className="flex justify-between items-start mb-2">
+                                <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary leading-snug`}>{item.title}</h3>
+                                {item.date && (
+                                    <span className="text-sm text-neutral-500 font-medium bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded">
+                                        {item.date}
                                     </span>
-                                ))}
+                                )}
                             </div>
-                        )}
-                    </motion.div>
-                ))}
+                            {item.subtitle && (
+                                <p className={`${embedded ? "text-sm" : "text-base"} text-accent font-medium mb-3`}>{item.subtitle}</p>
+                            )}
+                            {item.content && (
+                                <>
+                                    <div
+                                        id={contentId}
+                                        className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-500 leading-relaxed`}
+                                    >
+                                        <AnimatePresence mode="wait" initial={false}>
+                                            {isExpanded ? (
+                                                <motion.div
+                                                    key="full"
+                                                    initial={{ opacity: 0, height: 0 }}
+                                                    animate={{ opacity: 1, height: 'auto' }}
+                                                    exit={{ opacity: 0, height: 0 }}
+                                                    transition={{ duration: 0.25 }}
+                                                >
+                                                    <ReactMarkdown components={markdownComponents}>
+                                                        {item.content}
+                                                    </ReactMarkdown>
+                                                </motion.div>
+                                            ) : (
+                                                <motion.p
+                                                    key="preview"
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    className="line-clamp-4"
+                                                >
+                                                    {item.content.replace(/\s+/g, ' ').trim()}
+                                                </motion.p>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        aria-expanded={isExpanded}
+                                        aria-controls={contentId}
+                                        onClick={() => toggleItem(index)}
+                                        className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-accent hover:text-accent-dark dark:hover:text-accent-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 rounded transition-colors"
+                                    >
+                                        {isExpanded ? messages.cards.showLess : messages.cards.readMore}
+                                        <ChevronDown
+                                            aria-hidden="true"
+                                            className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+                                </>
+                            )}
+                            {item.tags && (
+                                <div className="flex flex-wrap gap-2 mt-4">
+                                    {item.tags.map(tag => (
+                                        <span key={tag} className="text-xs text-neutral-500 bg-neutral-50 dark:bg-neutral-800/50 px-2 py-1 rounded border border-neutral-100 dark:border-neutral-800">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </motion.article>
+                    );
+                })}
             </div>
         </motion.div>
     );

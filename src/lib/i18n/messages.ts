@@ -42,6 +42,10 @@ export interface LocaleMessages {
     bibtex: string;
     code: string;
   };
+  cards: {
+    readMore: string;
+    showLess: string;
+  };
   footer: {
     lastUpdated: string;
     builtWithPrism: string;
@@ -92,6 +96,10 @@ const en: LocaleMessages = {
     bibtex: 'BibTeX',
     code: 'Code',
   },
+  cards: {
+    readMore: 'Read full abstract',
+    showLess: 'Show less',
+  },
   footer: {
     lastUpdated: 'Last updated',
     builtWithPrism: 'Source code',
@@ -141,6 +149,10 @@ const zh: LocaleMessages = {
     abstract: '摘要',
     bibtex: 'BibTeX',
     code: '代码',
+  },
+  cards: {
+    readMore: '展开摘要',
+    showLess: '收起摘要',
   },
   footer: {
     lastUpdated: '最近更新',

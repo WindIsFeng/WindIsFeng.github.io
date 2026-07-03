@@ -1,6 +1,6 @@
 type = "card"
 title = "科研项目"
-description = "胡丰主导的科研项目。"
+description = "胡丰作为主要贡献者参与的代表性科研项目。"
 
 [[items]]
 title = "Multi-scale Modeling of Extreme Urban Wind Conditions under Climate Change (RGC Ref. No. 11203924)"
