@@ -17,6 +17,8 @@ https://windisfeng.github.io/
 
 ## 本地开发
 
+请先在本机安装 Node.js 22（含 npm），不需要把 Node.js 程序或安装包放进项目。
+
 安装依赖：
 
 ```bash
@@ -53,3 +55,8 @@ npm run build
 ## 致谢
 
 本站基于开源学术主页模板 PRISM 定制。
+
+## 本地文件与空间管理
+
+`node_modules/` 是本项目的本地依赖，开发和构建需要使用；可通过 `npm ci` 重建。`.next/` 是构建缓存，`out/` 是静态导出结果，停止开发服务后可删除，需要时通过 `npm run build` 重新生成。这些目录已被 Git 忽略，但云盘同步需要另外设置排除。保留 `package.json` 和 `package-lock.json`，以便恢复一致的依赖。npm 默认使用用户目录中的缓存，无需在项目中保留 `.npm-cache/`。
+

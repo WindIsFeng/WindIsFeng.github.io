@@ -17,6 +17,8 @@ Feng Hu is a PhD student at City University of Hong Kong. His research focuses o
 
 ## Development
 
+Install Node.js 22 (including npm) on your computer; keep its runtime and installers outside this project.
+
 Install dependencies:
 
 ```bash
@@ -53,3 +55,8 @@ See the **[Chinese content maintenance guide](docs/content-editing-guide.md)** f
 ## Acknowledgement
 
 This site is customized from the open-source PRISM academic homepage template.
+
+## Local files and disk space
+
+`node_modules/` contains local dependencies needed for development and builds; restore it with `npm ci`. `.next/` is build cache and `out/` is generated static output. After stopping the development server, these generated directories can be removed and recreated with `npm run build`. Git already ignores them; cloud-sync exclusions must be configured separately. Keep `package.json` and `package-lock.json` for reproducible installation. npm uses a user-level cache by default, so a project-local `.npm-cache/` is unnecessary.
+
