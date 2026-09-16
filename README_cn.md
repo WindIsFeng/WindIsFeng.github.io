@@ -39,6 +39,8 @@ npm run build
 
 ## 主要内容文件
 
+详细操作请看 **[网站内容维护指南](docs/content-editing-guide.md)**，包含文件速查、字段说明、论文和动态模板、中英文同步规则、预览发布步骤及常见问题。
+
 - `content/config.toml`：英文站点信息、导航和社交链接
 - `content/about.toml`：英文首页模块
 - `content/bio.md`：英文个人简介

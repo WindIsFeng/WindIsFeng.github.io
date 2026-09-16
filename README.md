@@ -39,6 +39,8 @@ The production site is deployed automatically to GitHub Pages through GitHub Act
 
 ## Main Content Files
 
+See the **[Chinese content maintenance guide](docs/content-editing-guide.md)** for editing instructions, field explanations, examples, and publishing checks.
+
 - `content/config.toml`: English site metadata, navigation, and social links
 - `content/about.toml`: English homepage section layout
 - `content/bio.md`: English biography
