@@ -5,6 +5,12 @@
 - Research focus: typhoon wind hazard modeling and risk analysis
 - Methods: AI models, probabilistic models, and physics-based models
 
+**Texas Tech University**, PhD studies (not completed)
+
+*2020 - 2022*
+- National Wind Institute; research area: Wind Engineering
+- Studies discontinued due to U.S. visa restrictions
+
 **Tongji University**, Master's Degree in Civil Engineering
 
 **Nanjing University of Aeronautics and Astronautics**, Bachelor's Degree
