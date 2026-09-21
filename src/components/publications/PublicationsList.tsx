@@ -22,15 +22,14 @@ interface PublicationsListProps {
     embedded?: boolean;
 }
 
-function formatVenue(publication: Publication): string {
-    const venue = publication.journal || publication.conference || '';
+function formatVenueDetails(publication: Publication): string {
     const details = [
         publication.volume,
         publication.issue ? `(${publication.issue})` : '',
         publication.pages ? `, ${publication.pages}` : '',
     ].join('');
 
-    return [venue, details, `(${publication.year})`]
+    return [details, `(${publication.year})`]
         .filter(Boolean)
         .join(' ')
         .replace(/\s+,/g, ',');
@@ -244,7 +243,10 @@ export default function PublicationsList({ config, publications, embedded = fals
                                         ))}
                                     </p>
                                     <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
-                                        {formatVenue(pub)}
+                                        {pub.type === 'journal' && pub.journal
+                                            ? <em>{pub.journal}</em>
+                                            : pub.journal || pub.conference}
+                                        {` ${formatVenueDetails(pub)}`}
                                     </p>
 
                                     {pub.description && (
